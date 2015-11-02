@@ -24,7 +24,35 @@ public class GildedRose
 	}
 
 	public static void updateItem(Item item)
-	{	
+	{
+		//switch (item.getName()){
+		//case 'Sulfuras, Hand of Ragnaros' :
+		//		break;			
+		//}
+		if (item.getName()=="Aged Brie")
+			{
+	    		item.setQuality(item.getQuality()+1);
+	    		item.setSellIn(item.getSellIn()-1);
+			}	
+		else if (item.getQuality()<0)
+			{
+				item.setQuality(0);
+			}
+		else if (item.getSellIn()<0)
+			{
+				item.setQuality(item.getQuality()-2);
+				item.setSellIn(item.getSellIn()-1);
+			}
+	    else if (item.getSellIn()>=0)
+			{
+				item.setQuality(item.getQuality()-1);
+				item.setSellIn(item.getSellIn()-1);
+			}
+	    else if (item.getQuality()>50)
+			{
+				item.setQuality(50);
+			}
+	    
 	}
 
 }
